@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://vaibofood.ru/</loc><priority>1.0</priority></url>
+  <url><loc>https://vaibofood.ru/how.html</loc></url>
+  <url><loc>https://vaibofood.ru/parchment.html</loc></url>
+  <url><loc>https://vaibofood.ru/features.html</loc></url>
+  <url><loc>https://vaibofood.ru/faq.html</loc></url>
+  <url><loc>https://vaibofood.ru/download.html</loc></url>
   <url><loc>https://vaibofood.ru/contacts.html</loc></url>
   <url><loc>https://vaibofood.ru/legal/</loc></url>
-  <url><loc>https://vaibofood.ru/legal/offer.html</loc></url>
   <url><loc>https://vaibofood.ru/legal/terms.html</loc></url>
   <url><loc>https://vaibofood.ru/legal/privacy.html</loc></url>
   <url><loc>https://vaibofood.ru/legal/consent.html</loc></url>
+  <url><loc>https://vaibofood.ru/legal/offer.html</loc></url>
   <url><loc>https://vaibofood.ru/legal/cookies.html</loc></url>
 </urlset>

@@ -3,416 +3,342 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Vaibo · меню на неделю за полминуты</title>
-  <meta name="description" content="Vaibo составляет меню на день, неделю или месяц, считает калории и белки, а продукты сразу складывает в корзину магазина.">
-  <meta name="theme-color" content="#000000">
+  <title>Vaibo</title>
+  <meta name="description" content="Vaibo подбирает полезные рецепты под ваш вкус и бюджет, собирает меню на неделю и корзину во ВкусВилле, а в AR показывает рецепт прямо на столе.">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://vaibofood.ru/">
-
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="Vaibo">
-  <meta property="og:title" content="Vaibo · меню на неделю за полминуты">
-  <meta property="og:description" content="Скажите, как хотите питаться. Vaibo распишет меню, посчитает КБЖУ и соберёт корзину.">
-  <meta property="og:url" content="https://vaibofood.ru/">
+  <meta property="og:title" content="Vaibo">
+  <meta property="og:description" content="Vaibo подбирает полезные рецепты под ваш вкус и бюджет, собирает меню на неделю и корзину во ВкусВилле, а в AR показывает рецепт прямо на столе.">
   <meta property="og:image" content="https://vaibofood.ru/assets/img/og.png">
   <meta name="twitter:card" content="summary_large_image">
-
   <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/assets/img/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/styles.css">
-  <link rel="preload" as="image" href="/assets/img/icon-blue-640.webp">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MobileApplication",
-    "name": "Vaibo",
-    "applicationCategory": "HealthApplication",
-    "operatingSystem": "iOS, Android",
-    "url": "https://vaibofood.ru/",
-    "description": "Меню на 1–30 дней, подсчёт КБЖУ, 13 стилей питания и готовая корзина в магазине."
-  }
-  </script>
 </head>
 <body>
   <a class="skip" href="#main">Перейти к содержанию</a>
-
-  <header class="nav" aria-label="Основная навигация">
-    <div class="wrap nav__inner">
-      <a class="nav__brand" href="/" aria-label="Vaibo, на главную">
-        <img src="/assets/img/favicon-192.png" alt="" width="28" height="28">
-        Vaibo
-      </a>
+  <header class="nav">
+    <nav class="wrap wrap--wide nav__inner" aria-label="Основное меню">
+      <a class="nav__brand" href="/" aria-label="Vaibo, на главную"><img src="/assets/img/wordmark-blue.png" alt="vaibo" width="1567" height="312"></a>
       <ul class="nav__links" id="nav-links">
-        <li><a href="#how">Как это работает</a></li>
-        <li><a href="#features">Возможности</a></li>
-        <li><a href="#diets">Питание</a></li>
-        <li><a href="#cart">Корзина</a></li>
-        <li><a href="#faq">Вопросы</a></li>
+        <li><a href="/" aria-current="page">Обзор</a></li>
+        <li><a href="/how.html">Как это работает</a></li>
+        <li><a href="/parchment.html">Пергамент</a></li>
+        <li><a href="/features.html">Возможности</a></li>
+        <li><a href="/faq.html">Вопросы</a></li>
       </ul>
-      <a class="btn btn--sm" href="#download">Скачать</a>
-      <button class="nav__toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Меню">
-        <span></span><span></span>
-      </button>
-    </div>
+      <a class="btn btn--sm" href="/download.html">Скачать</a>
+      <button class="nav__toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Открыть меню"><span></span><span></span></button>
+    </nav>
   </header>
-
   <main id="main">
 
-    <!-- Hero -->
     <section class="hero">
-      <div class="hero__glow" aria-hidden="true"></div>
-      <div class="wrap hero__content">
-        <div class="hero__icon intro-icon">
-          <img src="/assets/img/icon-blue-640.webp" alt="Иконка приложения Vaibo: весёлый повар в колпаке" width="640" height="640">
-        </div>
-        <div class="intro">
-          <span class="eyebrow">Vaibo</span>
-          <h1 class="h-hero hero__title">Меню на&nbsp;неделю.<br>Пока закипает чайник.</h1>
-          <p class="lead hero__sub">Скажите, как хотите питаться и&nbsp;на&nbsp;сколько дней. Vaibo распишет завтраки, обеды и&nbsp;ужины, посчитает калории и&nbsp;соберёт продукты в&nbsp;корзину.</p>
-          <div class="hero__cta">
-            <a class="btn" href="#download">Скачать Vaibo</a>
-            <a class="btn btn--ghost link-arrow" href="#how">Посмотреть, как это работает</a>
-          </div>
+      <div class="wrap intro">
+        <img class="hero__wordmark" src="/assets/img/wordmark-blue.png" alt="vaibo" width="1567" height="312">
+        <h1 class="display hero__title">Полезная еда, которая укладывается в бюджет</h1>
+        <p class="lead hero__sub">Vaibo подбирает рецепты под ваш вкус, собирает меню на неделю и считает, сколько продукты будут стоить во ВкусВилле. А когда пора готовить, раскладывает рецепт прямо на вашем столе.</p>
+        <div class="hero__cta">
+          <a class="btn" href="/download.html">Скачать для iPhone</a>
+          <a class="more" href="/how.html">Как это работает</a>
         </div>
       </div>
-      <div class="hero__scroll" aria-hidden="true"></div>
+      <img class="hero__device" src="/assets/img/app-recipe.webp" alt="iPhone с открытым Vaibo: рецепт пирога с творогом и яблоками" width="668" height="1374" fetchpriority="high">
     </section>
 
-    <!-- Манифест -->
-    <section class="manifesto">
+    <section class="section">
       <div class="wrap center">
-        <p class="manifesto__text">
-          Вечный вопрос «что сегодня едим?» теперь решается за вас. Вы просто готовите. Или вообще заказываете.
-        </p>
+        <p class="statement">Каждый вечер одни и те же вопросы: что приготовить, что купить и хватит ли денег до зарплаты. Vaibo отвечает на них за пару минут, а вы спокойно готовите.</p>
       </div>
     </section>
 
-    <!-- Цифры -->
-    <section class="section--tight" aria-labelledby="numbers-title">
-      <div class="wrap center">
-        <h2 class="h-1 reveal" id="numbers-title">Три цифры про Vaibo.</h2>
-        <div class="stats">
-          <div class="stat reveal" style="--delay:.05s">
-            <span class="stat__num gradient-text" data-count="30">30</span>
-            <span class="stat__label">секунд, и меню готово</span>
-          </div>
-          <div class="stat reveal" style="--delay:.15s">
-            <span class="stat__num gradient-text" data-count="30">30</span>
-            <span class="stat__label">дней можно спланировать за раз</span>
-          </div>
-          <div class="stat reveal" style="--delay:.25s">
-            <span class="stat__num gradient-text" data-count="13">13</span>
-            <span class="stat__label">стилей питания на выбор</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Как это работает -->
-    <section class="section story" id="how" aria-labelledby="how-title">
-      <div class="wrap">
-        <div class="center reveal">
-          <span class="eyebrow">Как это работает</span>
-          <h2 class="h-1" id="how-title">Четыре шага.<br>Один из них ждать.</h2>
-        </div>
-
-        <div class="story__grid">
-          <div class="story__sticky">
-            <div class="phone" role="img" aria-label="Экран приложения Vaibo">
-              <div class="phone__island"></div>
-              <div class="phone__screen">
-
-                <div class="screen is-active">
-                  <div class="screen__title">Как питаемся?</div>
-                  <div class="screen__hint">Можно выбрать один стиль</div>
-                  <div class="chips">
-                    <span class="chip">Сбалансированное</span>
-                    <span class="chip is-on">Средиземноморское</span>
-                    <span class="chip">Больше белка</span>
-                    <span class="chip">Вегетарианское</span>
-                    <span class="chip">Меньше углеводов</span>
-                    <span class="chip">Без глютена</span>
-                    <span class="chip">Без лактозы</span>
-                    <span class="chip">Кето</span>
-                    <span class="chip">Пескетарианское</span>
-                    <span class="chip">Веганское</span>
-                    <span class="chip">Для набора массы</span>
-                    <span class="chip">Лёгкое</span>
-                    <span class="chip">Семейное</span>
-                  </div>
-                </div>
-
-                <div class="screen">
-                  <div class="screen__title">На сколько дней?</div>
-                  <div class="screen__hint">От одного дня до месяца</div>
-                  <div class="days">
-                    <div class="days__num">7</div>
-                    <div class="days__label">дней · 28 приёмов пищи</div>
-                    <div class="days__track"><div class="days__fill"></div></div>
-                    <div class="days__scale"><span>1</span><span>7</span><span>14</span><span>30</span></div>
-                  </div>
-                </div>
-
-                <div class="screen">
-                  <div class="screen__title">Собираем меню</div>
-                  <div class="loader" aria-hidden="true">
-                    <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="50"/><circle class="fg" cx="60" cy="60" r="50"/></svg>
-                    <span class="loader__time" data-timer>0:30</span>
-                  </div>
-                  <div class="meal"><div class="meal__pic">🥣</div><div><div class="meal__name">Овсянка с грушей</div><div class="meal__type">Завтрак</div></div><div class="meal__kcal">380 ккал</div></div>
-                  <div class="meal"><div class="meal__pic">🐟</div><div><div class="meal__name">Треска с булгуром</div><div class="meal__type">Обед</div></div><div class="meal__kcal">540 ккал</div></div>
-                  <div class="meal"><div class="meal__pic">🥗</div><div><div class="meal__name">Салат с нутом и фетой</div><div class="meal__type">Ужин</div></div><div class="meal__kcal">420 ккал</div></div>
-                  <div class="macros"><div><b>1 640</b><span>ккал</span></div><div><b>98</b><span>белки</span></div><div><b>56</b><span>жиры</span></div><div><b>182</b><span>углев.</span></div></div>
-                </div>
-
-                <div class="screen">
-                  <div class="screen__title">Корзина</div>
-                  <div class="screen__hint">Всё на 7 дней, без дублей</div>
-                  <div class="cart-row"><span>🍐 Груши, 1 кг</span><span>189 ₽</span></div>
-                  <div class="cart-row"><span>🐟 Треска, филе</span><span>459 ₽</span></div>
-                  <div class="cart-row"><span>🌾 Булгур</span><span>119 ₽</span></div>
-                  <div class="cart-row"><span>🫘 Нут</span><span>99 ₽</span></div>
-                  <div class="cart-row"><span>🧀 Фета</span><span>229 ₽</span></div>
-                  <div class="cart-row"><span>🥬 Шпинат</span><span>149 ₽</span></div>
-                  <div class="cart-row"><span>+ ещё 21 продукт</span><span></span></div>
-                  <div class="cart-total"><span>Оформить</span><span>4 870 ₽</span></div>
-                </div>
-
+    <section class="chapters" aria-label="Что умеет Vaibo">
+      <div class="chapters__stage" aria-hidden="true">
+        <div class="wrap wrap--wide">
+          <div class="stage-slot">
+          <div class="phone">
+            <div class="phone__screen">
+            <div class="screen"><img src="/assets/img/screen-recipe.webp" alt="Экран Vaibo: пирог с творогом и яблоками, 1–2 часа, 6 порций, рецепт ВкусВилла" width="606" height="1320" loading="lazy"></div>
+            <div class="screen">
+              <div class="screen__bar"><span>9:41</span><span>●●●</span></div>
+              <div class="screen__body">
+                <div class="screen__h">План</div>
+                <div class="screen__note">13–19 октября · 2 едока</div>
+                <div class="s-day">Понедельник</div>
+                <div class="s-card s-row"><div class="s-dot"><span>🥕</span></div><div><div class="s-title">Овощи и нут на пергаменте</div><div class="s-sub">Ужин · 45 мин · духовка</div></div><span class="s-pill">AR</span></div>
+                <div class="s-day">Вторник</div>
+                <div class="s-card s-row"><div class="s-dot"><span>🐟</span></div><div><div class="s-title">Лосось с брокколи</div><div class="s-sub">Ужин · 30 мин</div></div><span></span></div>
+                <div class="s-day">Среда</div>
+                <div class="s-card s-row"><div class="s-dot"><span>🍗</span></div><div><div class="s-title">Курица с гречкой</div><div class="s-sub">Обед · 40 мин</div></div><span></span></div>
+                <div class="s-day">Четверг</div>
+                <div class="s-card s-row"><div class="s-dot"><span>🥗</span></div><div><div class="s-title">Чечевичный салат</div><div class="s-sub">Ужин · 25 мин</div></div><span></span></div>
+                <div class="s-card s-row" style="background:#eef3ff"><div class="s-dot" style="background:#fff"><span>⏰</span></div><div><div class="s-title">Начать готовить в 18:30</div><div class="s-sub">Напоминание на понедельник</div></div><span></span></div>
               </div>
             </div>
+            <div class="screen">
+              <div class="screen__bar"><span>9:41</span><span>●●●</span></div>
+              <div class="screen__body">
+                <div class="screen__h">Покупки</div>
+                <div class="screen__note">На 7 дней · 2 едока</div>
+                <div class="s-card s-budget">
+                  <div class="s-budget__top"><span class="s-sub">Бюджет на неделю</span><span class="s-sub">из 5 000 ₽</span></div>
+                  <div class="s-num">4 120 ₽</div>
+                  <div class="s-track"><div class="s-fill" style="--w:82%"></div></div>
+                  <div class="s-sub">Цены ВкусВилла, проверены сегодня в 9:12</div>
+                </div>
+                <div class="s-card s-row s-row--check3"><span class="s-check"></span><div><div class="s-title">Нут, 400 г</div><div class="s-sub">2 упаковки</div></div><span class="s-val">258 ₽</span></div>
+                <div class="s-card s-row s-row--check3"><span class="s-check"></span><div><div class="s-title">Брокколи, 400 г</div><div class="s-sub">1 упаковка</div></div><span class="s-val">189 ₽</span></div>
+                <div class="s-card s-row s-row--check3"><span class="s-check"></span><div><div class="s-title">Картофель</div><div class="s-sub">1,2 кг</div></div><span class="s-val">96 ₽</span></div>
+                <div class="s-card s-row s-row--check3"><span class="s-check on"></span><div><div class="s-title">Гречка</div><div class="s-sub">300 г</div></div><span class="s-pill">Есть дома</span></div>
+                <div class="s-cta"><span>Открыть корзину ВкусВилла</span><span>›</span></div>
+              </div>
+            </div>
+            <div class="screen screen--ar">
+              <div class="screen__bar"><span>9:41</span><span>●●●</span></div>
+              <div class="board" data-stage="1" data-autoplay data-labels="Лист на столе|Раскладка|Нарезка|Специи и масло|Запекание|Подача">
+          <div class="board__sheet">
+          <svg viewBox="0 0 500 380" aria-hidden="true">
+            <g class="zones">
+              <rect class="zone" x="40" y="40" width="190" height="130" rx="18"/>
+              <rect class="zone" x="270" y="40" width="190" height="130" rx="18"/>
+              <rect class="zone" x="40" y="210" width="190" height="130" rx="18"/>
+              <rect class="zone" x="270" y="210" width="190" height="130" rx="18"/>
+              <text class="zone-label" x="54" y="62">Картофель</text>
+              <text class="zone-label" x="284" y="62">Морковь</text>
+              <text class="zone-label" x="54" y="232">Помидоры</text>
+              <text class="zone-label" x="284" y="232">Нут</text>
+            </g>
+            <g class="ing"><g transform="translate(135 112)">
+              <g class="whole"><ellipse cx="-30" cy="0" rx="34" ry="24" fill="#c99a5b"/><ellipse cx="30" cy="8" rx="30" ry="21" fill="#bf8f50"/><circle cx="-40" cy="-6" r="2.5" fill="#8f6533"/><circle cx="-20" cy="6" r="2" fill="#8f6533"/><circle cx="34" cy="2" r="2.2" fill="#8f6533"/></g>
+              <g class="piece" fill="#f0d68f" stroke="#c99a5b" stroke-width="2"><rect x="-62" y="-22" width="22" height="20" rx="5"/><rect x="-34" y="-14" width="22" height="20" rx="5"/><rect x="-6" y="-24" width="22" height="20" rx="5"/><rect x="22" y="-10" width="22" height="20" rx="5"/><rect x="-48" y="6" width="22" height="20" rx="5"/><rect x="-18" y="10" width="22" height="20" rx="5"/><rect x="12" y="14" width="22" height="20" rx="5"/></g>
+            </g></g>
+            <g class="ing"><g transform="translate(365 112)">
+              <g class="whole"><path d="M-70 -6 Q-10 -24 52 -4 Q-10 18 -70 -6z" fill="#ee8a2f"/><path d="M52 -4 l18 -14 M52 -4 l20 -2 M52 -4 l16 10" stroke="#3d9a4c" stroke-width="5" stroke-linecap="round"/><path d="M-60 18 Q-4 4 44 22 Q-4 38 -60 18z" fill="#f29a3f"/></g>
+              <g class="piece" fill="#f39b3e" stroke="#d9741f" stroke-width="2"><circle cx="-54" cy="-10" r="12"/><circle cx="-26" cy="-14" r="12"/><circle cx="2" cy="-10" r="12"/><circle cx="30" cy="-14" r="12"/><circle cx="-40" cy="18" r="12"/><circle cx="-12" cy="16" r="12"/><circle cx="16" cy="20" r="12"/><circle cx="44" cy="16" r="12"/></g>
+            </g></g>
+            <g class="ing"><g transform="translate(135 282)">
+              <g class="whole"><circle cx="-34" cy="0" r="26" fill="#e2412f"/><circle cx="30" cy="4" r="24" fill="#d93a29"/><path d="M-34 -24 l-6 -8 M-34 -24 l7 -8 M-34 -24 l0 -10" stroke="#3d9a4c" stroke-width="4" stroke-linecap="round"/><circle cx="-42" cy="-8" r="5" fill="#fff" opacity=".35"/></g>
+              <g class="piece"><path d="M-66 -6 a18 18 0 0 1 36 0z" fill="#e2412f"/><path d="M-26 -14 a18 18 0 0 1 36 0z" fill="#d93a29"/><path d="M14 -4 a18 18 0 0 1 36 0z" fill="#e2412f"/><path d="M-50 22 a18 18 0 0 1 36 0z" fill="#d93a29"/><path d="M-6 26 a18 18 0 0 1 36 0z" fill="#e2412f"/><circle cx="-48" cy="-10" r="2" fill="#f7d36b"/><circle cx="-8" cy="-18" r="2" fill="#f7d36b"/><circle cx="32" cy="-8" r="2" fill="#f7d36b"/></g>
+            </g></g>
+            <g class="ing"><g transform="translate(365 282)" fill="#e7c98b" stroke="#c9a565" stroke-width="2">
+              <circle cx="-50" cy="-12" r="10"/><circle cx="-28" cy="-18" r="10"/><circle cx="-6" cy="-10" r="10"/><circle cx="16" cy="-18" r="10"/><circle cx="38" cy="-10" r="10"/><circle cx="-40" cy="10" r="10"/><circle cx="-18" cy="12" r="10"/><circle cx="4" cy="12" r="10"/><circle cx="26" cy="10" r="10"/><circle cx="48" cy="14" r="10"/><circle cx="-6" cy="32" r="10"/><circle cx="18" cy="32" r="10"/>
+            </g></g>
+            <g class="spice" fill="#7a4b1c"><circle cx="90" cy="96" r="2"/><circle cx="150" cy="130" r="2"/><circle cx="190" cy="100" r="2"/><circle cx="320" cy="96" r="2"/><circle cx="380" cy="130" r="2"/><circle cx="420" cy="100" r="2"/><circle cx="100" cy="270" r="2"/><circle cx="170" cy="300" r="2"/><circle cx="330" cy="270" r="2"/><circle cx="410" cy="300" r="2"/><circle cx="250" cy="190" r="2"/><circle cx="120" cy="110" r="1.6" fill="#3d9a4c"/><circle cx="350" cy="110" r="1.6" fill="#3d9a4c"/><circle cx="140" cy="290" r="1.6" fill="#3d9a4c"/><circle cx="380" cy="290" r="1.6" fill="#3d9a4c"/></g>
+            <g class="steam" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity=".9"><path d="M150 40 q-12 -16 0 -32 q12 -16 0 -32"/><path d="M250 30 q-12 -16 0 -32 q12 -16 0 -32"/><path d="M350 40 q-12 -16 0 -32 q12 -16 0 -32"/></g>
+          </svg>
           </div>
-
-          <div class="story__steps">
-            <article class="step">
-              <div class="step__num">Шаг 1</div>
-              <h3 class="h-2">Выберите, как вы едите.</h3>
-              <p>Без мяса, без молочного, побольше белка или просто «чтобы было нормально». Тринадцать вариантов, найдётся и ваш.</p>
-            </article>
-            <article class="step">
-              <div class="step__num">Шаг 2</div>
-              <h3 class="h-2">Решите, на сколько дней.</h3>
-              <p>Один день, чтобы попробовать. Неделя, чтобы не думать до выходных. Месяц, если вы любите порядок.</p>
-            </article>
-            <article class="step">
-              <div class="step__num">Шаг 3</div>
-              <h3 class="h-2">Подождите полминуты.</h3>
-              <p>Vaibo подберёт блюда и посчитает калории, белки, жиры и углеводы на каждый приём пищи. Ничего не нужно взвешивать и вбивать вручную.</p>
-            </article>
-            <article class="step">
-              <div class="step__num">Шаг 4</div>
-              <h3 class="h-2">Корзина уже собрана.</h3>
-              <p>Продукты под всё меню лежат в корзине магазина. Проверьте, уберите то, что уже есть дома, и оформляйте.</p>
-            </article>
+          
+        </div>
+              <div class="ar-hud"><b>Раскладка</b><span>Овощи и нут на пергаменте</span><div class="ar-progress"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+            </div>
+            </div>
+          </div>
           </div>
         </div>
       </div>
+      <article class="chapter chapter--recipes">
+        <div class="wrap wrap--wide chapter__inner">
+          <div class="chapter__text">
+            <div class="chapter__icon"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="21" r="11"/><circle cx="22" cy="21" r="6"/><path d="M7 8v8a3 3 0 0 0 3 3v13M7 8v5M10 8v5M13 8v8a3 3 0 0 1-3 3"/></svg></div>
+            <p><b>Рецепты.</b> Блюда с фото, пошаговыми инструкциями и КБЖУ. Vaibo убирает то, что вы не едите, и учитывает аллергены, технику на кухне и время, которое вы готовы потратить.</p>
+            <a class="more" href="/features.html#recipes">Все про рецепты</a>
+          </div>
+          <div class="chapter__media">
+          <div class="phone">
+            <div class="phone__screen">
+            <div class="screen"><img src="/assets/img/screen-recipe.webp" alt="Экран Vaibo: пирог с творогом и яблоками, 1–2 часа, 6 порций, рецепт ВкусВилла" width="606" height="1320" loading="lazy"></div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </article>
+      <article class="chapter chapter--plan">
+        <div class="wrap wrap--wide chapter__inner">
+          <div class="chapter__text">
+            <div class="chapter__icon"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="9" width="28" height="25" rx="5"/><path d="M6 16h28M13 5v7M27 5v7M15 25l4 4 7-8"/></svg></div>
+            <p><b>План на неделю.</b> Одно касание, и у вас меню на 3–14 дней без повторов. Vaibo напомнит, когда пора ставить ужин, и перенесёт готовку в календарь iPhone.</p>
+            <a class="more" href="/how.html">Как собирается план</a>
+          </div>
+          <div class="chapter__media">
+          <div class="phone">
+            <div class="phone__screen">
+            <div class="screen">
+              <div class="screen__bar"><span>9:41</span><span>●●●</span></div>
+              <div class="screen__body">
+                <div class="screen__h">План</div>
+                <div class="screen__note">13–19 октября · 2 едока</div>
+                <div class="s-day">Понедельник</div>
+                <div class="s-card s-row"><div class="s-dot"><span>🥕</span></div><div><div class="s-title">Овощи и нут на пергаменте</div><div class="s-sub">Ужин · 45 мин · духовка</div></div><span class="s-pill">AR</span></div>
+                <div class="s-day">Вторник</div>
+                <div class="s-card s-row"><div class="s-dot"><span>🐟</span></div><div><div class="s-title">Лосось с брокколи</div><div class="s-sub">Ужин · 30 мин</div></div><span></span></div>
+                <div class="s-day">Среда</div>
+                <div class="s-card s-row"><div class="s-dot"><span>🍗</span></div><div><div class="s-title">Курица с гречкой</div><div class="s-sub">Обед · 40 мин</div></div><span></span></div>
+                <div class="s-day">Четверг</div>
+                <div class="s-card s-row"><div class="s-dot"><span>🥗</span></div><div><div class="s-title">Чечевичный салат</div><div class="s-sub">Ужин · 25 мин</div></div><span></span></div>
+                <div class="s-card s-row" style="background:#eef3ff"><div class="s-dot" style="background:#fff"><span>⏰</span></div><div><div class="s-title">Начать готовить в 18:30</div><div class="s-sub">Напоминание на понедельник</div></div><span></span></div>
+              </div>
+            </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </article>
+      <article class="chapter chapter--basket">
+        <div class="wrap wrap--wide chapter__inner">
+          <div class="chapter__text">
+            <div class="chapter__icon"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 15h24l-2.5 17a3 3 0 0 1-3 2.5h-13a3 3 0 0 1-3-2.5z"/><path d="M14 15V12a6 6 0 0 1 12 0v3"/><path d="M16 22v6M24 22v6"/></svg></div>
+            <p><b>Покупки во ВкусВилле.</b> Продукты из всех рецептов собираются в один список и пересчитываются на всех, кто ест. Отметьте, что уже есть дома, и Vaibo посчитает сумму по ценам ВкусВилла и откроет готовую корзину.</p>
+            <a class="more" href="/features.html#basket">Про покупки и бюджет</a>
+          </div>
+          <div class="chapter__media">
+          <div class="phone">
+            <div class="phone__screen">
+            <div class="screen">
+              <div class="screen__bar"><span>9:41</span><span>●●●</span></div>
+              <div class="screen__body">
+                <div class="screen__h">Покупки</div>
+                <div class="screen__note">На 7 дней · 2 едока</div>
+                <div class="s-card s-budget">
+                  <div class="s-budget__top"><span class="s-sub">Бюджет на неделю</span><span class="s-sub">из 5 000 ₽</span></div>
+                  <div class="s-num">4 120 ₽</div>
+                  <div class="s-track"><div class="s-fill" style="--w:82%"></div></div>
+                  <div class="s-sub">Цены ВкусВилла, проверены сегодня в 9:12</div>
+                </div>
+                <div class="s-card s-row s-row--check3"><span class="s-check"></span><div><div class="s-title">Нут, 400 г</div><div class="s-sub">2 упаковки</div></div><span class="s-val">258 ₽</span></div>
+                <div class="s-card s-row s-row--check3"><span class="s-check"></span><div><div class="s-title">Брокколи, 400 г</div><div class="s-sub">1 упаковка</div></div><span class="s-val">189 ₽</span></div>
+                <div class="s-card s-row s-row--check3"><span class="s-check"></span><div><div class="s-title">Картофель</div><div class="s-sub">1,2 кг</div></div><span class="s-val">96 ₽</span></div>
+                <div class="s-card s-row s-row--check3"><span class="s-check on"></span><div><div class="s-title">Гречка</div><div class="s-sub">300 г</div></div><span class="s-pill">Есть дома</span></div>
+                <div class="s-cta"><span>Открыть корзину ВкусВилла</span><span>›</span></div>
+              </div>
+            </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </article>
+      <article class="chapter chapter--parchment">
+        <div class="wrap wrap--wide chapter__inner">
+          <div class="chapter__text">
+            <div class="chapter__icon"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12 20 6l15 6-15 6z"/><path d="M5 12v14l15 7 15-7V12"/><circle cx="14" cy="13" r="1.6" fill="currentColor"/><circle cx="22" cy="10.5" r="1.6" fill="currentColor"/><circle cx="25" cy="15" r="1.6" fill="currentColor"/></svg></div>
+            <p><b>Пергамент в AR.</b> Наведите камеру на стол, и на нём появится лист с разметкой: куда положить продукты, как нарезать и когда отправлять в духовку. Ингредиенты в 3D можно покрутить и рассмотреть.</p>
+            <a class="more" href="/parchment.html">Посмотреть пергамент</a>
+          </div>
+          <div class="chapter__media">
+          <div class="phone">
+            <div class="phone__screen">
+            <div class="screen screen--ar">
+              <div class="screen__bar"><span>9:41</span><span>●●●</span></div>
+              <div class="board" data-stage="1" data-autoplay data-labels="Лист на столе|Раскладка|Нарезка|Специи и масло|Запекание|Подача">
+          <div class="board__sheet">
+          <svg viewBox="0 0 500 380" aria-hidden="true">
+            <g class="zones">
+              <rect class="zone" x="40" y="40" width="190" height="130" rx="18"/>
+              <rect class="zone" x="270" y="40" width="190" height="130" rx="18"/>
+              <rect class="zone" x="40" y="210" width="190" height="130" rx="18"/>
+              <rect class="zone" x="270" y="210" width="190" height="130" rx="18"/>
+              <text class="zone-label" x="54" y="62">Картофель</text>
+              <text class="zone-label" x="284" y="62">Морковь</text>
+              <text class="zone-label" x="54" y="232">Помидоры</text>
+              <text class="zone-label" x="284" y="232">Нут</text>
+            </g>
+            <g class="ing"><g transform="translate(135 112)">
+              <g class="whole"><ellipse cx="-30" cy="0" rx="34" ry="24" fill="#c99a5b"/><ellipse cx="30" cy="8" rx="30" ry="21" fill="#bf8f50"/><circle cx="-40" cy="-6" r="2.5" fill="#8f6533"/><circle cx="-20" cy="6" r="2" fill="#8f6533"/><circle cx="34" cy="2" r="2.2" fill="#8f6533"/></g>
+              <g class="piece" fill="#f0d68f" stroke="#c99a5b" stroke-width="2"><rect x="-62" y="-22" width="22" height="20" rx="5"/><rect x="-34" y="-14" width="22" height="20" rx="5"/><rect x="-6" y="-24" width="22" height="20" rx="5"/><rect x="22" y="-10" width="22" height="20" rx="5"/><rect x="-48" y="6" width="22" height="20" rx="5"/><rect x="-18" y="10" width="22" height="20" rx="5"/><rect x="12" y="14" width="22" height="20" rx="5"/></g>
+            </g></g>
+            <g class="ing"><g transform="translate(365 112)">
+              <g class="whole"><path d="M-70 -6 Q-10 -24 52 -4 Q-10 18 -70 -6z" fill="#ee8a2f"/><path d="M52 -4 l18 -14 M52 -4 l20 -2 M52 -4 l16 10" stroke="#3d9a4c" stroke-width="5" stroke-linecap="round"/><path d="M-60 18 Q-4 4 44 22 Q-4 38 -60 18z" fill="#f29a3f"/></g>
+              <g class="piece" fill="#f39b3e" stroke="#d9741f" stroke-width="2"><circle cx="-54" cy="-10" r="12"/><circle cx="-26" cy="-14" r="12"/><circle cx="2" cy="-10" r="12"/><circle cx="30" cy="-14" r="12"/><circle cx="-40" cy="18" r="12"/><circle cx="-12" cy="16" r="12"/><circle cx="16" cy="20" r="12"/><circle cx="44" cy="16" r="12"/></g>
+            </g></g>
+            <g class="ing"><g transform="translate(135 282)">
+              <g class="whole"><circle cx="-34" cy="0" r="26" fill="#e2412f"/><circle cx="30" cy="4" r="24" fill="#d93a29"/><path d="M-34 -24 l-6 -8 M-34 -24 l7 -8 M-34 -24 l0 -10" stroke="#3d9a4c" stroke-width="4" stroke-linecap="round"/><circle cx="-42" cy="-8" r="5" fill="#fff" opacity=".35"/></g>
+              <g class="piece"><path d="M-66 -6 a18 18 0 0 1 36 0z" fill="#e2412f"/><path d="M-26 -14 a18 18 0 0 1 36 0z" fill="#d93a29"/><path d="M14 -4 a18 18 0 0 1 36 0z" fill="#e2412f"/><path d="M-50 22 a18 18 0 0 1 36 0z" fill="#d93a29"/><path d="M-6 26 a18 18 0 0 1 36 0z" fill="#e2412f"/><circle cx="-48" cy="-10" r="2" fill="#f7d36b"/><circle cx="-8" cy="-18" r="2" fill="#f7d36b"/><circle cx="32" cy="-8" r="2" fill="#f7d36b"/></g>
+            </g></g>
+            <g class="ing"><g transform="translate(365 282)" fill="#e7c98b" stroke="#c9a565" stroke-width="2">
+              <circle cx="-50" cy="-12" r="10"/><circle cx="-28" cy="-18" r="10"/><circle cx="-6" cy="-10" r="10"/><circle cx="16" cy="-18" r="10"/><circle cx="38" cy="-10" r="10"/><circle cx="-40" cy="10" r="10"/><circle cx="-18" cy="12" r="10"/><circle cx="4" cy="12" r="10"/><circle cx="26" cy="10" r="10"/><circle cx="48" cy="14" r="10"/><circle cx="-6" cy="32" r="10"/><circle cx="18" cy="32" r="10"/>
+            </g></g>
+            <g class="spice" fill="#7a4b1c"><circle cx="90" cy="96" r="2"/><circle cx="150" cy="130" r="2"/><circle cx="190" cy="100" r="2"/><circle cx="320" cy="96" r="2"/><circle cx="380" cy="130" r="2"/><circle cx="420" cy="100" r="2"/><circle cx="100" cy="270" r="2"/><circle cx="170" cy="300" r="2"/><circle cx="330" cy="270" r="2"/><circle cx="410" cy="300" r="2"/><circle cx="250" cy="190" r="2"/><circle cx="120" cy="110" r="1.6" fill="#3d9a4c"/><circle cx="350" cy="110" r="1.6" fill="#3d9a4c"/><circle cx="140" cy="290" r="1.6" fill="#3d9a4c"/><circle cx="380" cy="290" r="1.6" fill="#3d9a4c"/></g>
+            <g class="steam" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity=".9"><path d="M150 40 q-12 -16 0 -32 q12 -16 0 -32"/><path d="M250 30 q-12 -16 0 -32 q12 -16 0 -32"/><path d="M350 40 q-12 -16 0 -32 q12 -16 0 -32"/></g>
+          </svg>
+          </div>
+          
+        </div>
+              <div class="ar-hud"><b>Раскладка</b><span>Овощи и нут на пергаменте</span><div class="ar-progress"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+            </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </article>
     </section>
 
-    <!-- Возможности -->
-    <section class="section" id="features" aria-labelledby="features-title">
-      <div class="wrap">
+    <section class="section">
+      <div class="wrap wrap--wide">
         <div class="center reveal">
-          <span class="eyebrow">Возможности</span>
-          <h2 class="h-1" id="features-title">Вся рутина про еду.<br><span class="gradient-text">Минус вы.</span></h2>
+          <h2 class="title">Деньги считаются сами</h2>
+          <p class="lead" style="margin-top:16px">Укажите бюджет на день, неделю или месяц. Vaibo сверит с ним стоимость плана и подскажет, где можно сэкономить.</p>
         </div>
-
         <div class="tiles">
-          <article class="tile tile--wide tile--blue reveal">
-            <h3>30 секунд вместо вечера с блокнотом.</h3>
-            <p>Раньше меню на неделю означало рецепты в десяти вкладках и список покупок на обороте чека. Теперь это полминуты.</p>
-            <div class="tile__big"><span data-count="30">30</span>&nbsp;с</div>
-          </article>
-
-          <article class="tile reveal" style="--delay:.1s">
-            <h3>От одного дня до месяца.</h3>
-            <p>Планируйте ровно на столько, на сколько хочется. Передумали? Соберите новое.</p>
-            <div class="tile__big">1–30</div>
-          </article>
-
-          <article class="tile tile--half reveal">
-            <h3>КБЖУ посчитано заранее.</h3>
-            <p>У каждого блюда и у каждого дня. Видно, сколько белка вы съели, без приложений-калькуляторов.</p>
-            <div class="bars" aria-label="Пример дневного КБЖУ">
-              <div class="bar"><span>Калории</span><div class="bar__track"><div class="bar__fill" style="--w:82%"></div></div><span class="bar__val">1 640</span></div>
-              <div class="bar"><span>Белки</span><div class="bar__track"><div class="bar__fill" style="--w:70%"></div></div><span class="bar__val">98 г</span></div>
-              <div class="bar"><span>Жиры</span><div class="bar__track"><div class="bar__fill" style="--w:56%"></div></div><span class="bar__val">56 г</span></div>
-              <div class="bar"><span>Углеводы</span><div class="bar__track"><div class="bar__fill" style="--w:76%"></div></div><span class="bar__val">182 г</span></div>
-            </div>
-          </article>
-
-          <article class="tile tile--half tile--leaf reveal" style="--delay:.1s">
-            <h3>13 стилей питания.</h3>
-            <p>Средиземноморское, вегетарианское, без глютена и ещё десять. Меню подстраивается под ваш выбор, а не наоборот.</p>
-            <div class="tile__big">13</div>
-          </article>
-
-          <article class="tile tile--full reveal">
-            <h3>Магазин, но без хождения по рядам.</h3>
-            <p>Vaibo превращает меню в список продуктов и сразу кладёт их в онлайн-корзину. Курьер привезёт всё, что нужно на неделю, одним заказом.</p>
-          </article>
+          <article class="tile tile--third reveal"><h3>Меню на 3–14 дней</h3><p>Короткий план, чтобы попробовать, или две недели, чтобы не думать о еде до зарплаты.</p><div class="tile__num">3–14</div></article>
+          <article class="tile tile--third reveal" style="--delay:.08s"><h3>На всю семью</h3><p>Скажите, сколько человек едят, и количество продуктов пересчитается само.</p><div class="tile__num">×2</div></article>
+          <article class="tile tile--third reveal" style="--delay:.16s"><h3>Что есть дома</h3><p>Отметьте гречку в шкафу и морковь в холодильнике. В корзину они не попадут.</p><div class="tile__num">−1</div></article>
+          <article class="tile tile--blue reveal"><h3>Цены без сюрпризов</h3><p>Рядом с суммой видно, когда Vaibo проверил цены. Если у товара нет цены или фасовки, приложение честно напишет об этом и не станет угадывать итог.</p></article>
+          <article class="tile reveal" style="--delay:.08s"><h3>Готовка по шагам</h3><p>Таймеры напомнят, даже если вы закрыли приложение. А шаг можно послушать, пока руки в муке.</p><a class="more" href="/features.html#cooking">Подробнее</a></article>
         </div>
       </div>
     </section>
 
-    <!-- Стили питания -->
-    <section class="section--tight" id="diets" aria-labelledby="diets-title">
-      <div class="wrap reveal">
-        <span class="eyebrow">Питание</span>
-        <h2 class="h-1" id="diets-title">Тринадцать способов есть вкусно.</h2>
-        <p class="lead" style="max-width:40ch;margin-top:16px">Листайте. Где-нибудь здесь ваш.</p>
-      </div>
-
-      <div class="gallery">
-        <div class="gallery__track" tabindex="0" aria-label="Стили питания">
-          <article class="diet" style="--tint:#2f6bff"><span class="diet__n">01</span><h3>Сбалансированное</h3><p>Всего понемногу. Для тех, кто просто хочет есть нормально.</p><div class="diet__emoji">🍽️</div></article>
-          <article class="diet" style="--tint:#4fd27a"><span class="diet__n">02</span><h3>Средиземноморское</h3><p>Рыба, овощи, оливковое масло. Как в отпуске, только дома.</p><div class="diet__emoji">🫒</div></article>
-          <article class="diet" style="--tint:#f5b84f"><span class="diet__n">03</span><h3>Больше белка</h3><p>Для тренировок и для тех, кто вечно голодный к четырём.</p><div class="diet__emoji">🍳</div></article>
-          <article class="diet" style="--tint:#4fd27a"><span class="diet__n">04</span><h3>Вегетарианское</h3><p>Без мяса и рыбы, но с сыром, яйцами и аппетитом.</p><div class="diet__emoji">🥦</div></article>
-          <article class="diet" style="--tint:#8fb2ff"><span class="diet__n">05</span><h3>Меньше углеводов</h3><p>Хлеба и сладкого поменьше, сытости побольше.</p><div class="diet__emoji">🥑</div></article>
-          <article class="diet" style="--tint:#f5b84f"><span class="diet__n">06</span><h3>Без глютена</h3><p>Ни пшеницы, ни ржи, ни ячменя. И ни капли грусти.</p><div class="diet__emoji">🌽</div></article>
-          <article class="diet" style="--tint:#8fb2ff"><span class="diet__n">07</span><h3>Без лактозы</h3><p>Молочное убрали, вкус оставили.</p><div class="diet__emoji">🥥</div></article>
-          <article class="diet" style="--tint:#ff8a65"><span class="diet__n">08</span><h3>Кето</h3><p>Много жиров, минимум углеводов. Всё посчитано.</p><div class="diet__emoji">🥩</div></article>
-          <article class="diet" style="--tint:#2f6bff"><span class="diet__n">09</span><h3>Пескетарианское</h3><p>Мяса нет, рыба и морепродукты есть.</p><div class="diet__emoji">🦐</div></article>
-          <article class="diet" style="--tint:#4fd27a"><span class="diet__n">10</span><h3>Веганское</h3><p>Только растительное. И да, белка хватит.</p><div class="diet__emoji">🌱</div></article>
-          <article class="diet" style="--tint:#ff8a65"><span class="diet__n">11</span><h3>Набор массы</h3><p>Калорий больше, порции честнее.</p><div class="diet__emoji">🍝</div></article>
-          <article class="diet" style="--tint:#8fb2ff"><span class="diet__n">12</span><h3>Лёгкое</h3><p>Когда хочется есть и при этом не тяжелеть.</p><div class="diet__emoji">🥗</div></article>
-          <article class="diet" style="--tint:#f5b84f"><span class="diet__n">13</span><h3>Семейное</h3><p>Простые блюда, которые съедят и взрослые, и дети.</p><div class="diet__emoji">🍲</div></article>
+    <section class="section section--soft">
+      <div class="wrap wrap--wide">
+        <div class="center reveal">
+          <h2 class="title">Ваши данные остаются у вас</h2>
+          <p class="lead" style="margin-top:16px">Мы просим только то, без чего не получится подобрать еду.</p>
         </div>
-        <div class="wrap gallery__controls">
-          <button class="gallery__btn" type="button" data-dir="-1" aria-label="Назад">
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2 4 7l5 5"/></svg>
-          </button>
-          <button class="gallery__btn" type="button" data-dir="1" aria-label="Вперёд">
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 2 5 5-5 5"/></svg>
-          </button>
+        <div class="facts">
+          <div class="fact reveal"><b>Геопозиция только для города</b><p>Координаты нужны, чтобы определить город. Они не уходят с iPhone, а город можно выбрать и вручную.</p></div>
+          <div class="fact reveal" style="--delay:.08s"><b>Камера ничего не записывает</b><p>Пергамент работает на самом iPhone. Видео не сохраняется и никуда не отправляется.</p></div>
+          <div class="fact reveal" style="--delay:.16s"><b>Аккаунт удаляется в приложении</b><p>Перед удалением можно скачать все свои данные одним файлом.</p></div>
         </div>
+        <p class="center reveal" style="margin-top:36px"><a class="more" href="/legal/privacy.html">Как мы обращаемся с данными</a></p>
       </div>
     </section>
 
-    <!-- Корзина -->
-    <section class="section" id="cart" aria-labelledby="cart-title">
-      <div class="wrap cart-hero">
-        <div class="reveal">
-          <span class="eyebrow">Корзина</span>
-          <h2 class="h-1" id="cart-title">Меню само идёт в&nbsp;магазин.</h2>
-          <p class="lead" style="max-width:32ch;margin-top:20px">Vaibo складывает продукты для всех блюд в одну корзину. <strong>Ничего не забыто, лишнего не куплено.</strong> Остаётся нажать «Оформить».</p>
-        </div>
-        <div class="basket" aria-hidden="true">
-          <div class="basket__item" style="left:8%;top:6%;--r:-10deg;--fx:-60px;--fy:-160px;--fr:-40deg;--d:.05s">🥑</div>
-          <div class="basket__item" style="left:39%;top:0;--r:6deg;--fy:-200px;--fr:30deg;--d:.15s">🥖</div>
-          <div class="basket__item" style="left:70%;top:8%;--r:12deg;--fx:60px;--fy:-160px;--fr:50deg;--d:.25s">🍋</div>
-          <div class="basket__item" style="left:20%;top:28%;--r:8deg;--fx:-30px;--fy:-220px;--fr:-20deg;--d:.35s">🐟</div>
-          <div class="basket__item" style="left:56%;top:26%;--r:-8deg;--fx:30px;--fy:-220px;--fr:20deg;--d:.45s">🧀</div>
-          <div class="basket__bag"><img src="/assets/img/icon-blue-640.webp" alt="" width="640" height="640" loading="lazy"></div>
-        </div>
+    <section class="section">
+      <div class="wrap center">
+        <h2 class="title reveal">Попробуйте Vaibo на iPhone</h2>
+        <p class="lead reveal" style="margin-top:16px">Скоро в App Store.</p>
+        <p class="reveal" style="margin-top:28px"><a class="btn" href="/download.html">Узнать о запуске</a></p>
       </div>
     </section>
-
-    <!-- FAQ -->
-    <section class="section--tight" id="faq" aria-labelledby="faq-title">
-      <div class="wrap">
-        <h2 class="h-1 center reveal" id="faq-title">Вопросы, которые нам задают.</h2>
-        <div class="faq reveal">
-          <details>
-            <summary>Это диета для похудения?</summary>
-            <div class="faq__body">
-              <p>Не обязательно. Vaibo помогает есть разнообразно и по плану. Худеть, держать вес или набирать решаете вы, меню подстроится.</p>
-            </div>
-          </details>
-          <details>
-            <summary>А если у меня есть диагноз или назначения врача?</summary>
-            <div class="faq__body">
-              <p>Тогда сначала к врачу. Vaibo не ставит диагнозы и не лечит, он помогает спланировать обычное питание. Лечебное меню должен подбирать специалист.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Мне нужно самому считать калории?</summary>
-            <div class="faq__body">
-              <p>Нет. КБЖУ уже посчитано для каждого блюда и для дня целиком. Цифры ориентировочные: реальный вес продуктов и способ готовки немного их меняют.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Как работает корзина?</summary>
-            <div class="faq__body">
-              <p>Когда меню готово, Vaibo собирает список продуктов и переносит его в корзину магазина. Заказ, оплату и доставку оформляет уже сам магазин, по своим правилам и ценам.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Можно поменять меню, если что-то не нравится?</summary>
-            <div class="faq__body">
-              <p>Да. Соберите новое за те же полминуты: с другим стилем питания или на другое число дней.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Что вы делаете с моими данными?</summary>
-            <div class="faq__body">
-              <p>Используем их, чтобы составить меню и чтобы приложение работало. Не продаём. Подробно всё описано в <a href="/legal/privacy.html">политике обработки персональных данных</a>.</p>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- Скачать -->
-    <section class="section download" id="download" aria-labelledby="download-title">
-      <div class="wrap">
-        <div class="download__icons reveal-scale">
-          <img src="/assets/img/icon-graphite-640.webp" alt="" width="640" height="640" loading="lazy">
-          <img src="/assets/img/icon-blue-640.webp" alt="" width="640" height="640" loading="lazy">
-          <img src="/assets/img/icon-dark-640.webp" alt="" width="640" height="640" loading="lazy">
-        </div>
-        <h2 class="h-1 reveal" id="download-title">Ужин на сегодня уже придуман.</h2>
-        <p class="lead reveal" style="max-width:30ch;margin:18px auto 0">Осталось скачать Vaibo.</p>
-        <div class="stores reveal">
-          <!-- TODO: заменить href на реальные ссылки на приложение в сторах -->
-          <a class="store" href="#" aria-label="Скачать Vaibo в App Store">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
-            <span><small>Загрузите в</small>App Store</span>
-          </a>
-          <a class="store" href="#" aria-label="Скачать Vaibo в RuStore">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-            <span><small>Скачайте в</small>RuStore</span>
-          </a>
-          <a class="store" href="#" aria-label="Скачать Vaibo в Google Play">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
-            <span><small>Доступно в</small>Google Play</span>
-          </a>
-        </div>
-        <p class="note reveal">Устанавливая приложение, вы принимаете <a href="/legal/terms.html">пользовательское соглашение</a>.</p>
-      </div>
-    </section>
-
   </main>
-
   <footer class="footer">
-    <div class="wrap">
-      <div class="footer__fine">
-        <p>Vaibo помогает планировать повседневное питание. Это не медицинская услуга: мы не ставим диагнозы и не назначаем лечение. Если у вас есть заболевание, аллергия или беременность, обсудите питание с врачом.</p>
-        <p>Значения КБЖУ рассчитаны по справочным данным и могут отличаться от фактических. Цены и наличие товаров в корзине определяет магазин-партнёр.</p>
+    <div class="wrap wrap--wide">
+      <div class="footer__notes">
+        <p>Vaibo помогает планировать питание и покупки. Это не медицинская услуга: приложение не ставит диагнозы и не подбирает лечебное питание. Если у вас есть заболевания, аллергия или вы ждёте ребёнка, посоветуйтесь с врачом.</p>
+        <p>Цены в Vaibo берутся из каталога ВкусВилла на момент проверки. Итоговую стоимость, наличие и доставку ВкусВилл показывает при оформлении заказа. ВкусВилл является товарным знаком своего правообладателя.</p>
+        <p>Экраны приложения на сайте показаны для примера, цены на них условные. iPhone и App Store являются товарными знаками Apple Inc.</p>
       </div>
       <div class="footer__cols">
         <div>
           <h4>Vaibo</h4>
           <ul>
-            <li><a href="#how">Как это работает</a></li>
-            <li><a href="#diets">Стили питания</a></li>
-            <li><a href="#faq">Вопросы</a></li>
+            <li><a href="/how.html">Как это работает</a></li>
+            <li><a href="/parchment.html">Пергамент</a></li>
+            <li><a href="/features.html">Возможности</a></li>
+            <li><a href="/faq.html">Вопросы</a></li>
           </ul>
         </div>
         <div>
           <h4>Документы</h4>
           <ul>
-            <li><a href="/legal/offer.html">Публичная оферта</a></li>
             <li><a href="/legal/terms.html">Пользовательское соглашение</a></li>
             <li><a href="/legal/privacy.html">Обработка персональных данных</a></li>
-            <li><a href="/legal/consent.html">Согласие на обработку данных</a></li>
+            <li><a href="/legal/consent.html">Согласия</a></li>
+            <li><a href="/legal/offer.html">Оферта</a></li>
             <li><a href="/legal/cookies.html">Cookies</a></li>
           </ul>
         </div>
@@ -420,22 +346,16 @@
           <h4>Связь</h4>
           <ul>
             <li><a href="/contacts.html">Контакты и реквизиты</a></li>
-            <li><a href="mailto:hello@vaibofood.ru">hello@vaibofood.ru</a></li>
+            <li><a href="/download.html">Скачать</a></li>
           </ul>
         </div>
       </div>
       <div class="footer__bottom">
-        <span>© <span data-year>2026</span> Vaibo. Все права защищены.</span>
+        <span>© <span data-year>2026</span> Vaibo</span>
         <a href="/legal/">Правовая информация</a>
       </div>
     </div>
   </footer>
-
-  <div class="cookie" role="region" aria-label="Уведомление о cookies">
-    <p>Сайт использует cookies, чтобы нормально работать. Подробнее в <a href="/legal/cookies.html">политике cookies</a>.</p>
-    <button class="btn btn--sm" type="button">Понятно</button>
-  </div>
-
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
