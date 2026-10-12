@@ -1,206 +1,166 @@
 (() => {
-  const root = document.documentElement;
-  root.classList.remove("no-js");
+  document.documentElement.classList.remove("no-js");
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const desktop = window.matchMedia("(min-width: 835px)");
+  const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
 
-  /* ---------- Навигация ---------- */
+  /* ---------- Меню на телефоне ---------- */
   const nav = document.querySelector(".nav");
-  if (nav) {
-    const toggle = nav.querySelector(".nav__toggle");
-    const onScroll = () => nav.classList.toggle("is-stuck", window.scrollY > 4);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    if (toggle) {
-      const setOpen = (open) => {
-        nav.classList.toggle("is-open", open);
-        toggle.setAttribute("aria-expanded", String(open));
-        document.body.style.overflow = open ? "hidden" : "";
-      };
-      toggle.addEventListener("click", () => setOpen(!nav.classList.contains("is-open")));
-      nav.querySelectorAll(".nav__links a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
-      document.addEventListener("keydown", (e) => e.key === "Escape" && setOpen(false));
-    }
-  }
-
-  /* ---------- Появление при скролле ---------- */
-  const revealEls = document.querySelectorAll(".reveal, .reveal-scale, .basket");
-  if ("IntersectionObserver" in window && !reduced) {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
-    );
-    revealEls.forEach((el) => io.observe(el));
-  } else {
-    revealEls.forEach((el) => el.classList.add("is-visible"));
-  }
-
-  /* ---------- Счётчики ---------- */
-  const counters = document.querySelectorAll("[data-count]");
-  const runCounter = (el) => {
-    const target = Number(el.dataset.count);
-    const prefix = el.dataset.prefix || "";
-    if (reduced) { el.textContent = prefix + target; return; }
-    const duration = 1400;
-    const start = performance.now();
-    const tick = (now) => {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = prefix + Math.round(target * eased);
-      if (p < 1) requestAnimationFrame(tick);
+  const toggle = nav && nav.querySelector(".nav__toggle");
+  if (toggle) {
+    const setOpen = (open) => {
+      nav.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
     };
-    requestAnimationFrame(tick);
-  };
-  if ("IntersectionObserver" in window) {
-    const cio = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) { runCounter(entry.target); cio.unobserve(entry.target); }
+    toggle.addEventListener("click", () => setOpen(!nav.classList.contains("is-open")));
+    document.addEventListener("keydown", (e) => e.key === "Escape" && setOpen(false));
+    desktop.addEventListener("change", () => setOpen(false));
+  }
+
+  /* ---------- Появление блоков ---------- */
+  const reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !reduced) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); }
       });
-    }, { threshold: 0.6 });
-    counters.forEach((el) => cio.observe(el));
+    }, { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add("is-visible"));
   }
 
-  /* ---------- Hero: иконка уплывает и уменьшается при скролле ---------- */
-  const heroIcon = document.querySelector(".hero__icon");
-  const heroContent = document.querySelector(".hero__content");
-
-  /* ---------- Манифест: слова «загораются» по мере скролла ---------- */
-  const manifesto = document.querySelector(".manifesto__text");
+  /* ---------- Абзац, который проявляется по словам ---------- */
+  const statement = document.querySelector(".statement");
   let words = [];
-  if (manifesto) {
-    const text = manifesto.textContent.trim().replace(/\s+/g, " ");
-    manifesto.setAttribute("aria-label", text);
-    manifesto.innerHTML = text
-      .split(" ")
-      .map((w) => `<span class="w" aria-hidden="true">${w}</span>`)
-      .join(" ");
-    words = [...manifesto.querySelectorAll(".w")];
+  if (statement) {
+    const text = statement.textContent.trim().replace(/\s+/g, " ");
+    statement.setAttribute("aria-label", text);
+    statement.innerHTML = text.split(" ").map((w) => `<span class="w" aria-hidden="true">${w}</span>`).join(" ");
+    words = [...statement.querySelectorAll(".w")];
+    if (reduced) words.forEach((w) => w.classList.add("on"));
   }
 
+  /* ---------- Главы: телефон на месте, экран меняется шторкой ---------- */
+  const chapters = document.querySelector(".chapters");
+  const stageScreen = chapters && chapters.querySelector(".chapters__stage .phone__screen");
+  const chapterEls = chapters ? [...chapters.querySelectorAll(".chapter")] : [];
+  const stageScreens = stageScreen ? [...stageScreen.querySelectorAll(".screen")] : [];
+  const setStaged = () => {
+    if (chapters && stageScreen) chapters.classList.toggle("is-staged", desktop.matches);
+  };
+  setStaged();
+  desktop.addEventListener("change", () => { setStaged(); frame(); });
+
+  /* ---------- Кадр прокрутки ---------- */
+  const heroDevice = document.querySelector(".hero__device");
   let ticking = false;
-  const onFrame = () => {
+  function frame() {
     ticking = false;
     const vh = window.innerHeight;
 
-    if (heroIcon && heroContent && !reduced) {
-      const p = Math.min(Math.max(window.scrollY / (vh * 0.9), 0), 1);
-      heroIcon.style.transform = `translateY(${p * -40}px) scale(${1 - p * 0.25}) rotate(${p * -6}deg)`;
-      heroContent.style.opacity = String(1 - p * 1.1);
+    if (heroDevice && !reduced) {
+      const r = heroDevice.getBoundingClientRect();
+      const p = clamp(1 - r.top / vh, 0, 1);
+      heroDevice.style.transform = `translateY(${(1 - p) * 40}px) scale(${0.92 + p * 0.1})`;
     }
 
-    if (words.length) {
-      const r = manifesto.getBoundingClientRect();
-      // 0 — когда блок появился внизу экрана, 1 — когда дошёл до верхней трети
-      const p = Math.min(Math.max((vh * 0.85 - r.top) / (r.height + vh * 0.35), 0), 1);
+    if (words.length && !reduced) {
+      const r = statement.getBoundingClientRect();
+      const p = clamp((vh * 0.85 - r.top) / (r.height + vh * 0.35), 0, 1);
       const lit = Math.round(p * words.length);
       words.forEach((w, i) => w.classList.toggle("on", i < lit));
     }
-  };
-  const requestFrame = () => {
-    if (!ticking) { ticking = true; requestAnimationFrame(onFrame); }
-  };
-  window.addEventListener("scroll", requestFrame, { passive: true });
-  window.addEventListener("resize", requestFrame);
-  if (reduced) words.forEach((w) => w.classList.add("on"));
-  onFrame();
 
-  /* ---------- Как это работает: шаги переключают экран телефона ---------- */
-  const steps = document.querySelectorAll(".step");
-  const screens = document.querySelectorAll(".screen");
-  const timer = document.querySelector("[data-timer]");
-  let timerRun = 0;
-  const startTimer = () => {
-    if (!timer) return;
-    const id = ++timerRun;
-    const total = 30;
-    const start = performance.now();
-    const tick = (now) => {
-      if (id !== timerRun) return;
-      const p = Math.min((now - start) / 2400, 1);
-      const left = Math.round(total * (1 - (1 - Math.pow(1 - p, 3))));
-      timer.textContent = `0:${String(left).padStart(2, "0")}`;
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  };
-  const activate = (index) => {
-    steps.forEach((s, i) => s.classList.toggle("is-active", i === index));
-    screens.forEach((s, i) => s.classList.toggle("is-active", i === index));
-    if (screens[index] && screens[index].querySelector("[data-timer]")) startTimer();
-  };
-  if (steps.length && "IntersectionObserver" in window) {
-    const sio = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) activate([...steps].indexOf(entry.target));
+    if (chapters && chapters.classList.contains("is-staged")) {
+      const s = stageScreen.getBoundingClientRect();
+      chapterEls.forEach((ch, i) => {
+        const c = ch.getBoundingClientRect();
+        const top = clamp(c.top - s.top, 0, s.height);
+        const bottom = clamp(s.bottom - c.bottom, 0, s.height);
+        if (stageScreens[i]) stageScreens[i].style.clipPath = `inset(${top}px 0 ${bottom}px 0)`;
       });
-    }, {
-      // На телефоне верх экрана занят макетом, поэтому шаг «активен» в нижней части
-      rootMargin: window.matchMedia("(max-width: 834px)").matches ? "-72% 0px -18% 0px" : "-45% 0px -45% 0px",
-    });
-    steps.forEach((s) => sio.observe(s));
-    activate(0);
+    }
   }
+  const request = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  window.addEventListener("scroll", request, { passive: true });
+  window.addEventListener("resize", request);
+  frame();
 
-  /* ---------- Галерея ---------- */
-  document.querySelectorAll(".gallery").forEach((g) => {
-    const track = g.querySelector(".gallery__track");
-    const prev = g.querySelector("[data-dir='-1']");
-    const next = g.querySelector("[data-dir='1']");
-    if (!track || !prev || !next) return;
-    const update = () => {
-      prev.disabled = track.scrollLeft < 8;
-      next.disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 8;
+  /* ---------- Пошаговые истории: шаг справа меняет экран слева ---------- */
+  document.querySelectorAll("[data-story]").forEach((story) => {
+    const steps = [...story.querySelectorAll(".step")];
+    const screens = [...story.querySelectorAll(".story__stage .screen")];
+    const board = story.querySelector(".story__stage .board");
+    const badge = board && board.querySelector(".board__badge");
+    const activate = (i) => {
+      steps.forEach((s, k) => s.classList.toggle("is-on", k === i));
+      screens.forEach((s, k) => s.classList.toggle("is-on", k === i));
+      if (board) {
+        board.dataset.stage = String(i);
+        if (badge && steps[i]) badge.textContent = steps[i].dataset.badge || "";
+      }
     };
-    [prev, next].forEach((btn) =>
-      btn.addEventListener("click", () => {
-        const card = track.querySelector(".diet");
-        const step = card ? card.getBoundingClientRect().width + 20 : 320;
-        track.scrollBy({ left: step * Number(btn.dataset.dir) * 2, behavior: reduced ? "auto" : "smooth" });
-      })
-    );
-    track.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    update();
+    if (!("IntersectionObserver" in window)) { activate(0); return; }
+    let io;
+    const observe = () => {
+      if (io) io.disconnect();
+      io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) activate(steps.indexOf(e.target)); });
+      }, { rootMargin: desktop.matches ? "-45% 0px -45% 0px" : "-70% 0px -20% 0px" });
+      steps.forEach((s) => io.observe(s));
+    };
+    observe();
+    desktop.addEventListener("change", observe);
+    activate(0);
   });
 
-  /* ---------- Cookies ---------- */
-  const cookie = document.querySelector(".cookie");
-  if (cookie) {
-    let seen = false;
-    try { seen = localStorage.getItem("vaibo-cookie-ok") === "1"; } catch (e) { /* приватный режим */ }
-    if (!seen) setTimeout(() => cookie.classList.add("is-shown"), 1200);
-    cookie.querySelector("button").addEventListener("click", () => {
-      cookie.classList.remove("is-shown");
-      try { localStorage.setItem("vaibo-cookie-ok", "1"); } catch (e) { /* ничего страшного */ }
-    });
-  }
+  /* ---------- Пергамент в телефоне: стадии идут по кругу, пока экран виден ---------- */
+  document.querySelectorAll("[data-autoplay]").forEach((board) => {
+    if (reduced || !("IntersectionObserver" in window)) { board.dataset.stage = "2"; return; }
+    const labels = (board.dataset.labels || "").split("|");
+    const hud = board.closest(".screen") && board.closest(".screen").querySelector(".ar-hud");
+    const dots = hud ? [...hud.querySelectorAll(".ar-progress i")] : [];
+    const title = hud && hud.querySelector("b");
+    let stage = 0;
+    let timer = null;
+    const show = () => {
+      board.dataset.stage = String(stage);
+      dots.forEach((d, k) => d.classList.toggle("on", k <= stage));
+      if (title && labels[stage]) title.textContent = labels[stage];
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting && !timer) {
+          show();
+          timer = setInterval(() => { stage = (stage + 1) % 6; show(); }, 1700);
+        } else if (!e.isIntersecting && timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      });
+    }, { threshold: 0.2 });
+    io.observe(board);
+  });
 
-  /* ---------- Оглавление юридических страниц ---------- */
+  /* ---------- Оглавление документов ---------- */
   const tocLinks = document.querySelectorAll(".legal__toc a");
   if (tocLinks.length && "IntersectionObserver" in window) {
     const map = new Map();
     tocLinks.forEach((a) => {
-      const target = document.querySelector(a.getAttribute("href"));
-      if (target) map.set(target, a);
+      const t = document.getElementById(a.getAttribute("href").slice(1));
+      if (t) map.set(t, a);
     });
     const tio = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
           tocLinks.forEach((a) => a.classList.remove("is-current"));
-          map.get(entry.target).classList.add("is-current");
+          map.get(e.target).classList.add("is-current");
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
     map.forEach((_, el) => tio.observe(el));
   }
 
-  /* ---------- Год в подвале ---------- */
   document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 })();
